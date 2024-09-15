@@ -62,7 +62,7 @@ export default function FeedbackItemsContextProvider({
 
     setFeedbackItems([...feedbackItems, newItem]);
 
-    await fetch("https://backend-data-1.onrender.com/api/feedbacks", {
+    await fetch("https://feedback-backend-v8mb.onrender.com/api/feedbacks", {
       method: "POST",
       body: JSON.stringify(newItem),
       headers: {

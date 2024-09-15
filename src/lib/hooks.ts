@@ -23,13 +23,12 @@ export function useFeedbackItems() {
 
       try {
         const response = await fetch(
-          "https://backend-data-1.onrender.com/api/feedbacks"
+          "https://feedback-backend-v8mb.onrender.com/api/feedbacks"
         );
 
         if (!response.ok) {
           throw new Error();
         }
-
         const data = await response.json();
         setFeedbackItems(data.feedbacks);
       } catch (error) {
@@ -41,7 +40,6 @@ export function useFeedbackItems() {
 
     fetchFeedbackItems();
   }, []);
-
   return {
     feedbackItems,
     isLoading,

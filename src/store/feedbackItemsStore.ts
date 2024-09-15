@@ -52,17 +52,14 @@ export const useFeedbackItemsStore = create<Store>((set, get) => ({
       feedbackItems: [...state.feedbackItems, newItem],
     }));
 
-    await fetch(
-      "https://bytegrad.com/api/course-assets/projects/corpcomment/api/feedbacks",
-      {
-        method: "POST",
-        body: JSON.stringify(newItem),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    await fetch("https://feedback-backend-v8mb.onrender.com/api/feedbacks", {
+      method: "POST",
+      body: JSON.stringify(newItem),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
   },
   selectCompany: (company: string) => {
     set(() => ({
@@ -76,7 +73,7 @@ export const useFeedbackItemsStore = create<Store>((set, get) => ({
 
     try {
       const response = await fetch(
-        "https://backend-data-1.onrender.com/api/feedbacks"
+        "https://feedback-backend-v8mb.onrender.com/api/feedbacks"
       );
 
       if (!response.ok) {

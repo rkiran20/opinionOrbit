@@ -1,14 +1,15 @@
-import FeedbackItem from "./FeedbackItem"
-import Spinner from "../Spinner"
-import ErrorMessage from "../ErrorMessage"
-import { useFeedbackItemsStore } from "../../store/feedbackItemsStore"
+import FeedbackItem from "./FeedbackItem";
+import Spinner from "../Spinner";
+import ErrorMessage from "../ErrorMessage";
+import { useFeedbackItemsStore } from "../../store/feedbackItemsStore";
 
 export default function FeedbackList() {
-  const isLoading = useFeedbackItemsStore((state) => state.isLoading)
-  const errorMessage = useFeedbackItemsStore((state) => state.errorMessage)
+  const isLoading = useFeedbackItemsStore((state) => state.isLoading);
+  const errorMessage = useFeedbackItemsStore((state) => state.errorMessage);
   const filteredFeedbackItems = useFeedbackItemsStore((state) =>
     state.getFilteredFeedbackItems()
-  )
+  );
+  console.log(filteredFeedbackItems);
 
   return (
     <ol className="feedback-list">
@@ -20,5 +21,5 @@ export default function FeedbackList() {
         <FeedbackItem key={feedbackItem.id} feedbackItem={feedbackItem} />
       ))}
     </ol>
-  )
+  );
 }
